@@ -1,0 +1,181 @@
+export default function Equa() {
+  return (
+    <svg
+      width='260'
+      height='60'
+      viewBox='0 0 200 60'
+      xmlns='http://www.w3.org/2000/svg'
+    >
+      <g fill='#fff'>
+        <rect x='15' y='20' width='10' height='40'>
+          <animate
+            attributeName='height'
+            values='10;40;15;35;10'
+            dur='1s'
+            repeatCount='indefinite'
+          />
+          <animate
+            attributeName='y'
+            values='50;20;45;25;50'
+            dur='1s'
+            repeatCount='indefinite'
+          />
+        </rect>
+        <rect x='30' y='20' width='10' height='40'>
+          <animate
+            attributeName='height'
+            values='10;40;15;35;10'
+            dur='1s'
+            repeatCount='indefinite'
+          />
+          <animate
+            attributeName='y'
+            values='50;20;45;25;50'
+            dur='1s'
+            repeatCount='indefinite'
+          />
+        </rect>
+        <rect x='45' y='10' width='10' height='50'>
+          <animate
+            attributeName='height'
+            values='50;20;40;15;50'
+            dur='1.2s'
+            repeatCount='indefinite'
+          />
+          <animate
+            attributeName='y'
+            values='10;40;20;45;10'
+            dur='1.2s'
+            repeatCount='indefinite'
+          />
+        </rect>
+        <rect x='60' y='10' width='10' height='50'>
+          <animate
+            attributeName='height'
+            values='50;20;40;15;50'
+            dur='1.2s'
+            repeatCount='indefinite'
+          />
+          <animate
+            attributeName='y'
+            values='10;40;20;45;10'
+            dur='1.2s'
+            repeatCount='indefinite'
+          />
+        </rect>
+        <rect x='75' y='25' width='10' height='35'>
+          <animate
+            attributeName='height'
+            values='35;10;45;20;35'
+            dur='0.9s'
+            repeatCount='indefinite'
+          />
+          <animate
+            attributeName='y'
+            values='25;50;15;40;25'
+            dur='0.9s'
+            repeatCount='indefinite'
+          />
+        </rect>
+        <rect x='90' y='25' width='10' height='35'>
+          <animate
+            attributeName='height'
+            values='35;10;45;20;35'
+            dur='0.9s'
+            repeatCount='indefinite'
+          />
+          <animate
+            attributeName='y'
+            values='25;50;15;40;25'
+            dur='0.9s'
+            repeatCount='indefinite'
+          />
+        </rect>
+        <rect x='105' y='5' width='10' height='55'>
+          <animate
+            attributeName='height'
+            values='55;25;45;15;55'
+            dur='1s'
+            repeatCount='indefinite'
+          />
+          <animate
+            attributeName='y'
+            values='5;35;15;45;5'
+            dur='1s'
+            repeatCount='indefinite'
+          />
+        </rect>
+        <rect x='120' y='5' width='10' height='55'>
+          <animate
+            attributeName='height'
+            values='55;25;45;15;55'
+            dur='1s'
+            repeatCount='indefinite'
+          />
+          <animate
+            attributeName='y'
+            values='5;35;15;45;5'
+            dur='1s'
+            repeatCount='indefinite'
+          />
+        </rect>
+        <rect x='135' y='20' width='10' height='40'>
+          <animate
+            attributeName='height'
+            values='10;40;15;35;10'
+            dur='1s'
+            repeatCount='indefinite'
+          />
+          <animate
+            attributeName='y'
+            values='50;20;45;25;50'
+            dur='1s'
+            repeatCount='indefinite'
+          />
+        </rect>
+        <rect x='150' y='20' width='10' height='40'>
+          <animate
+            attributeName='height'
+            values='10;40;15;35;10'
+            dur='1s'
+            repeatCount='indefinite'
+          />
+          <animate
+            attributeName='y'
+            values='50;20;45;25;50'
+            dur='1s'
+            repeatCount='indefinite'
+          />
+        </rect>
+        <rect x='165' y='10' width='10' height='50'>
+          <animate
+            attributeName='height'
+            values='50;20;40;15;50'
+            dur='1.2s'
+            repeatCount='indefinite'
+          />
+          <animate
+            attributeName='y'
+            values='10;40;20;45;10'
+            dur='1.2s'
+            repeatCount='indefinite'
+          />
+        </rect>
+        <rect x='180' y='10' width='10' height='50'>
+          <animate
+            attributeName='height'
+            values='50;20;40;15;50'
+            dur='1.2s'
+            repeatCount='indefinite'
+          />
+          <animate
+            attributeName='y'
+            values='10;40;20;45;10'
+            dur='1.2s'
+            repeatCount='indefinite'
+          />
+        </rect>
+      </g>
+    </svg>
+  );
+}
