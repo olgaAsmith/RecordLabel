@@ -1,0 +1,142 @@
+.roadmap {
+  height: max-content;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  &__cards {
+    margin-top: 100px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 143px;
+  }
+
+  &__item {
+    border: 1px solid (var(--green));
+    background-color: #222222;
+
+    max-width: 540px;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -85px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      display: block;
+      height: 40px;
+      width: 1px;
+      background-color: var(--green);
+    }
+
+    &:last-child::after {
+      content: none;
+    }
+  }
+
+  &__item-top {
+    padding: 12px;
+
+    display: flex;
+    gap: 12px;
+
+    border-bottom: 1px solid (var(--green));
+  }
+
+  &__item-bottom {
+    padding: 30px 12px;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 12px;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+  }
+
+  &__subtitle {
+    font-size: 18px;
+    line-height: 1.8;
+    text-transform: uppercase;
+  }
+  &__number {
+    width: 45px;
+    height: 45px;
+    background-color: var(--green);
+
+    font-family: Audiowide, sans-serif;
+    font-size: 28px;
+    line-height: 1;
+    color: #000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__feature {
+    font-size: 12px;
+    line-height: 3;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    padding-left: 20px;
+  }
+
+  &__arrow {
+    color: var(--green);
+  }
+
+  &__text {
+    font-size: 12px;
+    line-height: 1.8;
+
+    margin-top: 20px;
+  }
+
+  &__pic {
+    display: flex;
+    justify-content: end;
+  }
+
+  &__image {
+    border-radius: 8px;
+
+    width: 150px;
+    height: 150px;
+  }
+
+  &__pulse1 {
+    position: absolute;
+    top: -10%;
+    left: 0;
+    width: 50%;
+    height: 50%;
+  }
+
+  &__pulse2 {
+    position: absolute;
+    bottom: 10%;
+    right: 0;
+    width: 50%;
+    height: 50%;
+  }
+
+  &__pulse3 {
+    position: absolute;
+    bottom: -30%;
+    left: 0;
+    width: 50%;
+    height: 50%;
+  }
+}

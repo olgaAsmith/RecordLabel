@@ -1,15 +1,9 @@
 @import url(./reset.css);
 
 :root {
-  --background: #fff;
-  --foreground: #000;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #000;
-    --foreground: #ededed;
-  }
+  --background: #000;
+  --foreground: #ededed;
+  --green: #8dfd1b;
 }
 
 html,
@@ -39,12 +33,6 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
-
 .container {
   max-width: 1440px;
   padding: 0 60px;
@@ -64,10 +52,15 @@ h1, h2, h3 {
 }
 
 section {
-  height: 100dvh;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  padding: 100px 0;
 }

@@ -6,17 +6,16 @@
   text-align: center;
   color: #000;
 
-  background: #8dfd1b;
+  background: var(--green);
   border: 3px solid transparent;
   min-width: 200px;
   padding: 15px 10px;
 
   cursor: pointer;
 
-  transition: all 0.4s ease;;
+  transition: all 0.4s ease;
   &:hover {
     letter-spacing: 0.1rem;
     border: 3px solid #eeeeee;
   }
 }
-

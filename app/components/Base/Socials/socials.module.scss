@@ -19,7 +19,7 @@
     transition: all 0.3s ease;
 
     &:hover {
-      background-color: #8dfd1b;
+      background-color: var(--green);
       .socials__icon {
         transform: rotate(15deg) scale(1.15);
       }

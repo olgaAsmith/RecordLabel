@@ -1,10 +1,10 @@
 .main-text {
   p {
     display: block;
-    border-left: 2px solid #8dfd1b;
+    border-left: 2px solid var(--green);
     padding-left: 20px;
 
     font-size: 20px;
-    color: #8dfd1b;
+    color: var(--green);
   }
 }

@@ -21,7 +21,7 @@
     transition: all 0.3s ease;
     cursor: pointer;
     &:hover {
-      color: #8dfd1b;
+      color: var(--green);
     }
   }
 }
