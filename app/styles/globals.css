@@ -40,7 +40,7 @@ a {
 }
 
 
-h1 {
+h1, h2 {
   white-space: nowrap;
 }
 
@@ -61,6 +61,6 @@ section {
 .main {
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 200px;
   padding: 100px 0;
 }

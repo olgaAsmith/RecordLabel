@@ -10,8 +10,18 @@ export default function Team() {
       position: 'Founder',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
-      twitterLink: 'url',
-      linkedLink: 'url',
+      customSocials: [
+        {
+          name: 'Twitter',
+          href: '##',
+          icon: '/icons/socials/twitter.svg',
+        },
+        {
+          name: 'LinkedIn',
+          href: '##',
+          icon: '/icons/socials/linkedin.svg',
+        },
+      ],
     },
     {
       name: 'Baky Hike',
@@ -19,8 +29,18 @@ export default function Team() {
       position: 'Co-founder',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
-      twitterLink: 'url',
-      linkedLink: 'url',
+      customSocials: [
+        {
+          name: 'Twitter',
+          href: '##',
+          icon: '/icons/socials/twitter.svg',
+        },
+        {
+          name: 'LinkedIn',
+          href: '##e',
+          icon: '/icons/socials/linkedin.svg',
+        },
+      ],
     },
     {
       name: 'Vania Do',
@@ -28,8 +48,18 @@ export default function Team() {
       position: 'Producer',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
-      twitterLink: 'url',
-      linkedLink: 'url',
+      customSocials: [
+        {
+          name: 'Twitter',
+          href: '##',
+          icon: '/icons/socials/twitter.svg',
+        },
+        {
+          name: 'LinkedIn',
+          href: '##',
+          icon: '/icons/socials/linkedin.svg',
+        },
+      ],
     },
   ];
 
@@ -55,7 +85,7 @@ export default function Team() {
             />
             <h3 className={styles.team__name}>{artist.name}</h3>
             <span className={styles.team__position}>{artist.position}</span>
-            <Socials />
+            <Socials customSocials={artist.customSocials} />
             <p className={styles.team__description}>{artist.description}</p>
           </li>
         ))}

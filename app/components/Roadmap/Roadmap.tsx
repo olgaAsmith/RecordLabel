@@ -37,7 +37,7 @@ export default function Roadmap() {
         { text: 'First live concert in Sandjar' },
         { text: 'Live concert in Decentrafield' },
       ],
-      text: 'We secured dates for out artists to peform in front of the live audience of Metaverse. Check the concert schedule in our',
+      text: 'We secured dates for out artists to peform in front of the live. Check the concert schedule in our',
       image: '/images/wave/mini_pink.webp',
     },
   ];

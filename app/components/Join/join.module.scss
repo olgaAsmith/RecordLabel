@@ -1,0 +1,24 @@
+.join {
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    justify-content: space-between;
+    gap: 100px;
+
+    width: 100%;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  &__button {
+    max-width: fit-content;
+  }
+  &__image {
+    width: 100%;
+  }
+}
