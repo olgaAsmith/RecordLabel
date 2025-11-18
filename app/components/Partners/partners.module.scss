@@ -1,9 +1,14 @@
+@import '../../styles/media';
+
 .partners {
   &__list {
     display: flex;
     gap: 100px;
 
-    margin-top: 60px;
+    @include md {
+      flex-direction: column;
+      gap: 20px;
+    }
   }
   &__item {
     width: 250px;

@@ -1,3 +1,5 @@
+@import '../../styles/media';
+
 .footer {
   display: flex;
   flex-direction: column;
@@ -8,4 +10,9 @@
   background-color: #231d2e;
 
   font-size: 12px;
+
+  @include md {
+    padding: 20px 0;
+    font-size: 8px;
+  }
 }

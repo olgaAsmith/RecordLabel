@@ -1,14 +1,29 @@
+@import '../../styles/media';
+
 .description {
   max-width: 1160px;
   &__container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    @include lg {
+      grid-template-columns: 1fr 2fr;
+    }
+    @include md {
+      grid-template-columns: 1fr;
+    }
   }
-  &__minicontainer {
+  &__left {
     display: flex;
     flex-direction: column;
-
+    @include md {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      align-items: center;
+    }
+    h2 {
+      margin-bottom: 10px;
+    }
     span {
       font-family: Audiowide, sans-serif;
       font-weight: 400;
@@ -16,8 +31,15 @@
       line-height: 1.2;
       text-transform: uppercase;
       color: #a8a8a8;
-      margin-top: 20px;
+      @include md {
+        font-size: 20px;
+      }
     }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
   }
 
   &__textblock {
@@ -33,5 +55,8 @@
 
   &__image {
     margin-top: 20px;
+    @include md {
+      margin-top: 0;
+    }
   }
 }

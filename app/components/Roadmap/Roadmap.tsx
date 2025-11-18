@@ -1,4 +1,4 @@
-import Pulse from './Pulse/Pulse';
+import Circle from './Circle/Circle';
 import styles from './roadmap.module.scss';
 import Image from 'next/image';
 
@@ -44,13 +44,13 @@ export default function Roadmap() {
   return (
     <section className={`container ${styles.roadmap}`}>
       <div className={styles.roadmap__pulse1}>
-        <Pulse />
+        <Circle />
       </div>
       <div className={styles.roadmap__pulse2}>
-        <Pulse />
+        <Circle />
       </div>
       <div className={styles.roadmap__pulse3}>
-        <Pulse />
+        <Circle />
       </div>
       <h2>Roadmap</h2>
       <ul className={styles.roadmap__cards}>
@@ -65,7 +65,7 @@ export default function Roadmap() {
             </div>
             <div className={styles['roadmap__item-bottom']}>
               <div>
-                <ul className={styles.roadmap}>
+                <ul className={styles.roadmap__list}>
                   {item.features.map((feature) => (
                     <li key={feature.text} className={styles.roadmap__feature}>
                       <span className={styles.roadmap__arrow}>&#9658;</span>
@@ -77,7 +77,7 @@ export default function Roadmap() {
               </div>
               <div className={styles.roadmap__pic}>
                 <Image
-                  width={150}
+                  width={100}
                   height={150}
                   src={item.image}
                   alt='Wave'

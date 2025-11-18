@@ -1,14 +1,18 @@
+@import '../../styles/media';
+
 .roadmap {
   height: max-content;
   position: relative;
   width: 100%;
   margin: 0 auto;
   &__cards {
-    margin-top: 100px;
-
     display: flex;
     flex-direction: column;
     gap: 143px;
+
+    @include md {
+      gap: 80px;
+    }
   }
 
   &__item {
@@ -29,6 +33,12 @@
       height: 40px;
       width: 1px;
       background-color: var(--green);
+
+      @include md {
+        height: 20px;
+        bottom: -50px;
+
+      }
     }
 
     &:last-child::after {
@@ -52,6 +62,9 @@
     grid-template-columns: 2fr 1fr;
     gap: 12px;
     justify-content: space-between;
+    @include md {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__title {
@@ -82,15 +95,24 @@
     justify-content: center;
   }
 
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
   &__feature {
     font-size: 12px;
-    line-height: 3;
+    line-height: 1.5;
 
     display: flex;
     align-items: center;
     gap: 6px;
 
     padding-left: 20px;
+
+    @include md {
+      padding-left: 0;
+    }
   }
 
   &__arrow {
@@ -114,6 +136,10 @@
 
     width: 150px;
     height: 150px;
+
+    @include md {
+      display: none;
+    }
   }
 
   &__pulse1 {
@@ -122,6 +148,9 @@
     left: 0;
     width: 50%;
     height: 50%;
+    @include md {
+      top: 0;
+    }
   }
 
   &__pulse2 {
@@ -130,6 +159,9 @@
     right: 0;
     width: 50%;
     height: 50%;
+    @include md {
+      bottom: 20%;
+    }
   }
 
   &__pulse3 {
@@ -138,5 +170,8 @@
     left: 0;
     width: 50%;
     height: 50%;
+    @include md {
+      bottom: -15%;
+    }
   }
 }

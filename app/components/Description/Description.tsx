@@ -7,9 +7,11 @@ export default function Description() {
   return (
     <section className={`container ${styles.description}`}>
       <div className={styles.description__container}>
-        <div className={styles.description__mini_container}>
-          <h2>wave NFT</h2>
-          <span>COLLECTION</span>
+        <div className={styles.description__left}>
+          <div>
+            <h2>wave NFT</h2>
+            <span>COLLECTION</span>
+          </div>
           <Image
             width={360}
             height={360}
@@ -18,7 +20,7 @@ export default function Description() {
             className={styles.description__image}
           />
         </div>
-        <div className={styles.description__minicontainer}>
+        <div className={styles.description__right}>
           <MainText text='WAVE NFT is your pass to Record Label ecosystem. It is your access to our industry experts, established artists, and partners.' />
           <div className={styles.description__textblock}>
             <p>

@@ -1,11 +1,20 @@
+@import '../../styles/media';
+
 .history {
   &__container {
-    margin-top: 80px;
-
     display: grid;
     grid-template-columns: 1fr 4fr;
+
+    @include md {
+      grid-template-columns: 1fr;
+    }
   }
 
+  &__list {
+    @include md {
+      display: flex;
+    }
+  }
   &__tab {
     padding: 25px;
     cursor: pointer;
@@ -17,6 +26,13 @@
 
     &:hover {
       background: #111010;
+    }
+
+    @include md {
+      padding: 16px 12px;
+
+      font-size: 10px;
+
     }
   }
 
@@ -38,8 +54,27 @@
     padding: 70px 60px;
 
     min-height: 480px;
-  }
 
+    overflow: hidden;
+
+    @include md {
+      padding: 40px;
+      min-height: 360px;
+      flex-direction: column-reverse;
+      grid-template-columns: 1fr;
+    }
+  }
+  &__contentwrapper {
+    @include md {
+      order: 1;
+    }
+  }
+  &__imagewrapper {
+    @include md {
+      order: 2;
+      margin: 0 auto;
+    }
+  }
   &__textblock {
     display: flex;
     flex-direction: column;
@@ -55,7 +90,16 @@
 
     &--visible {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateY(0);
+    }
+
+    @include md {
+      transform: translateX(100px);
+      transition: all 0.4s ease;
+
+      &--visible {
+        transform: translateX(0);
+      }
     }
   }
 }

@@ -11,7 +11,7 @@ export default function Partners() {
     },
   ];
   return (
-    <section className={`container ${styles.partners}`}>
+    <section className={`container`}>
       <h2>Our partners</h2>
       <ul className={styles.partners__list}>
         {logos.map((logo) => (

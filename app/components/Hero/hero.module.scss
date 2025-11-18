@@ -1,23 +1,42 @@
+@import '../../styles/media';
+
 .hero {
   display: grid;
   grid-template-columns: 1fr 2fr;
   height: 100dvh;
+
+  margin-bottom: -200px;
+
+  @include md {
+    grid-template-columns: 1fr;
+    height: auto;
+    margin-bottom: 0;
+    margin-top: 100px;
+  }
+
   & p {
     margin-top: 44px;
     max-width: 80%;
+    @include md {
+      margin-top: 24px;
+    }
   }
 
   & button {
     margin-top: 170px;
+    @include md {
+      margin-top: 80px;
+    }
   }
 
   &__image {
     width: 100%;
-    height: 100%;
 
     svg {
       width: 100%;
-      height: 100%;
+    }
+    @include md {
+      display: none;
     }
   }
 }

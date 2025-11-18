@@ -1,3 +1,5 @@
+@import '../../styles/media';
+
 .join {
   &__container {
     display: grid;
@@ -7,12 +9,32 @@
     gap: 100px;
 
     width: 100%;
+    @include xl {
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @include md {
+      grid-template-columns: 2fr 1fr;
+    }
   }
 
   &__info {
     display: flex;
     flex-direction: column;
     gap: 60px;
+
+    @include md {
+      gap: 30px;
+    }
+
+    h2 {
+      margin-bottom: 0;
+    }
+    p {
+      @include md {
+        max-width: 300px;
+      }
+    }
   }
 
   &__button {

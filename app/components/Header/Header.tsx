@@ -2,7 +2,7 @@ import styles from './header.module.scss';
 import Socials from '../Base/Socials/Socials';
 
 export default function Header() {
-  const links = ['Wave N FTs', 'Stories', 'Contact'];
+  const links = ['Wave', 'Stories', 'Contact'];
   return (
     <header className={`container ${styles.header}`}>
       <div className={styles.header__container}>

@@ -60,7 +60,7 @@ export default function History() {
       <h2>The Story</h2>
       <div className={styles.history__container}>
         <div className={styles.history__tabs}>
-          <ul>
+          <ul className={styles.history__list}>
             {content.map((item, idx) => (
               <li
                 key={item.title}
@@ -77,7 +77,7 @@ export default function History() {
         <div>
           <div className={styles.history__content}>
             <div
-              className={`${styles.history__fadeWrapper} ${
+              className={`${styles.history__imagewrapper} ${styles.history__fadeWrapper} ${
                 fade ? styles['history__fadeWrapper--visible'] : ''
               }`}
             >
@@ -90,7 +90,7 @@ export default function History() {
               />
             </div>
             <div
-              className={`${styles.history__fadeWrapper} ${
+              className={`${styles.history__contentwrapper} ${styles.history__fadeWrapper} ${
                 fade ? styles['history__fadeWrapper--visible'] : ''
               }`}
             >

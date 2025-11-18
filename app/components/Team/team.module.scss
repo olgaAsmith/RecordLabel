@@ -1,3 +1,5 @@
+@import '../../styles/media';
+
 .team {
   &__title {
     display: flex;
@@ -6,6 +8,10 @@
     will-change: transform;
 
     margin-top: 100px;
+
+    @include md {
+      margin-top: 0;
+    }
   }
 
   &__list {
@@ -13,8 +19,21 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 100px;
 
-    margin-top: 120px;
     padding: 0 100px;
+
+    @include xl {
+      gap: 80px;
+    }
+    @include lg {
+      gap: 60px;
+    }
+
+    @include md {
+      grid-template-columns: 1fr;
+
+      gap: 50px;
+      padding: 0 20px;
+    }
   }
   &__item {
     display: flex;
@@ -26,6 +45,18 @@
   }
   &__name {
     font-size: 32px;
+
+    @include xl {
+      font-size: 26px;
+    }
+
+    @include lg {
+      font-size: 20px;
+    }
+
+    @include md {
+      margin-top: -16px;
+    }
   }
 
   &__position {
@@ -34,11 +65,29 @@
     letter-spacing: 0.09em;
     text-transform: uppercase;
     color: var(--green);
+
+    @include xl {
+      font-size: 16px;
+    }
+
+    @include lg {
+      font-size: 12px;
+    }
   }
 
   &__description {
-    font-size: 16px;
     line-height: 1.6;
     text-align: center;
+    @include md {
+      max-width: 250px;
+    }
+
+    @include xl {
+      font-size: 14px;
+    }
+
+    @include lg {
+      font-size: 12px;
+    }
   }
 }
