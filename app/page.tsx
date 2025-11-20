@@ -1,4 +1,5 @@
 import Artists from './components/Artists/Artists';
+import ScrollUpButton from './components/Base/ScrollUpButton/ScrollUpButton';
 import Description from './components/Description/Description';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
@@ -26,6 +27,7 @@ export default function Home() {
         <Join />
       </main>
       <Footer />
+      <ScrollUpButton />
     </div>
   );
 }

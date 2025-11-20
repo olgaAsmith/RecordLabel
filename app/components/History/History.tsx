@@ -56,7 +56,7 @@ export default function History() {
   ];
 
   return (
-    <section className={`container ${styles.history}`}>
+    <section className={`container ${styles.history}`}id='story'>
       <h2>The Story</h2>
       <div className={styles.history__container}>
         <div className={styles.history__tabs}>

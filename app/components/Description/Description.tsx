@@ -5,7 +5,7 @@ import styles from './description.module.scss';
 
 export default function Description() {
   return (
-    <section className={`container ${styles.description}`}>
+    <section className={`container ${styles.description}`} id='wave'>
       <div className={styles.description__container}>
         <div className={styles.description__left}>
           <div>

@@ -19,17 +19,3 @@
     }
   }
 }
-
-.menu {
-  display: flex;
-  gap: 50px;
-  text-transform: uppercase;
-
-  &__item {
-    transition: all 0.3s ease;
-    cursor: pointer;
-    &:hover {
-      color: var(--green);
-    }
-  }
-}

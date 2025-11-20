@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function Join() {
   return (
-    <section className={`container ${styles.join}`}>
+    <section className={`container ${styles.join}`} id='contact'>
       <div className={styles.join__container}>
         <div className={styles.join__info}>
           <h2>Join us</h2>

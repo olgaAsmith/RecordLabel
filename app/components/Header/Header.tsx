@@ -1,20 +1,13 @@
 import styles from './header.module.scss';
 import Socials from '../Base/Socials/Socials';
+import BurgerMenu from './BurgerMenu/BurgerMenu';
 
 export default function Header() {
-  const links = ['Wave', 'Stories', 'Contact'];
+  const links = ['Wave', 'Story', 'Contact'];
   return (
     <header className={`container ${styles.header}`}>
       <div className={styles.header__container}>
-        <nav>
-          <ul className={styles.menu}>
-            {links.map((link, idx) => (
-              <li className={styles.menu__item} key={idx}>
-                {link}
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <BurgerMenu links={links} />
         <Socials />
       </div>
     </header>
