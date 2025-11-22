@@ -21,5 +21,12 @@
     "eslint": "^9",
     "eslint-config-next": "16.0.3",
     "typescript": "^5"
-  }
+  },
+  "browserslist": [
+    "ie 11",
+    "Edge >= 12",
+    "Firefox >= 45",
+    "Chrome >= 45",
+    "Safari >= 9"
+  ]
 }
