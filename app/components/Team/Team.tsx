@@ -2,80 +2,21 @@
 import Socials from '../Base/Socials/Socials';
 import styles from './team.module.scss';
 import Image from 'next/image';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useEffect, useRef } from 'react';
-
-gsap.registerPlugin(ScrollTrigger);
+import { useRef } from 'react';
+import { useGsapTimeline } from '@/app/hooks/useGsapTimeline';
+import { team } from '@/app/utils/data';
 
 export default function Team() {
-  const team = [
-    {
-      name: 'Shaky Lake',
-      pic: '/images/team/team_shaky.webp',
-      position: 'Founder',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
-      customSocials: [
-        {
-          name: 'Twitter',
-          href: '##',
-          icon: '/icons/socials/twitter.svg',
-        },
-        {
-          name: 'LinkedIn',
-          href: '##',
-          icon: '/icons/socials/linkedin.svg',
-        },
-      ],
-    },
-    {
-      name: 'Baky Hike',
-      pic: '/images/team/team_baky.webp',
-      position: 'Co-founder',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
-      customSocials: [
-        {
-          name: 'Twitter',
-          href: '##',
-          icon: '/icons/socials/twitter.svg',
-        },
-        {
-          name: 'LinkedIn',
-          href: '##e',
-          icon: '/icons/socials/linkedin.svg',
-        },
-      ],
-    },
-    {
-      name: 'Vania Do',
-      pic: '/images/team/team_vania.webp',
-      position: 'Producer',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
-      customSocials: [
-        {
-          name: 'Twitter',
-          href: '##',
-          icon: '/icons/socials/twitter.svg',
-        },
-        {
-          name: 'LinkedIn',
-          href: '##',
-          icon: '/icons/socials/linkedin.svg',
-        },
-      ],
-    },
-  ];
-  const teamRef = useRef<HTMLDivElement>(null);
+  const teamRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
 
-  useEffect(() => {
-    const items = gsap.utils.toArray<HTMLElement>(`.${styles.team__item}`);
+  useGsapTimeline(teamRef, (gsapInstance) => {
+    const items = gsapInstance.utils.toArray<HTMLElement>(
+      `.${styles.team__item}`
+    );
 
     if (titleRef.current) {
-      gsap.fromTo(
+      gsapInstance.fromTo(
         titleRef.current,
         { y: 150, scale: 1.4 },
         {
@@ -92,7 +33,7 @@ export default function Team() {
       );
     }
 
-    gsap.fromTo(
+    gsapInstance.fromTo(
       items,
       {
         x: 150,
@@ -116,7 +57,7 @@ export default function Team() {
         },
       }
     );
-  }, []);
+  });
   return (
     <section ref={teamRef} className={styles.team}>
       <h2 ref={titleRef} className={styles.team__title}>

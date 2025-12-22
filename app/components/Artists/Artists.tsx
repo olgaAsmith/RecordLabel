@@ -1,17 +1,17 @@
 'use client';
 import styles from './artists.module.scss';
 import Image from 'next/image';
-import { useLayoutEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { artists } from '@/app/utils/data';
-import { gsap } from '@/app/lib/gsap';
+import { useGsapTimeline } from '@/app/hooks/useGsapTimeline';
 
 export default function Artists() {
-  const artistsRef = useRef<HTMLDivElement>(null);
+  const artistsRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
 
-  useLayoutEffect(() => {
-    const tl = gsap.timeline({
+  useGsapTimeline(artistsRef, (gsapInstance) => {
+    const tl = gsapInstance.timeline({
       scrollTrigger: {
         trigger: artistsRef.current,
         start: 'top top',
@@ -22,11 +22,7 @@ export default function Artists() {
     });
     tl.to(titleRef.current, { x: '-50%' });
     tl.to(listRef.current, { x: '-55%' }, '<');
-
-    return () => {
-      tl.revert();
-    };
-  }, []);
+  });
 
   return (
     <section ref={artistsRef} className={styles.artists}>

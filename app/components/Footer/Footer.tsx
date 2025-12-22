@@ -2,14 +2,14 @@
 
 import Socials from '../Base/Socials/Socials';
 import styles from './footer.module.scss';
-import { gsap } from '@/app/lib/gsap';
-import { useLayoutEffect, useRef } from 'react';
+import { useRef } from 'react';
+import { useGsapTimeline } from '@/app/hooks/useGsapTimeline';
 
 export default function Footer() {
   const footerRef = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
-    gsap.fromTo(
+  useGsapTimeline(footerRef, (gsapInstance) => {
+    gsapInstance.fromTo(
       footerRef.current,
       { x: '100%' },
       {
@@ -23,10 +23,8 @@ export default function Footer() {
         },
       }
     );
-    return () => {
-      gsap.revert();
-    };
   }, []);
+
   return (
     <footer ref={footerRef} className={`${styles.footer}`}>
       <Socials />
@@ -34,3 +32,4 @@ export default function Footer() {
     </footer>
   );
 }
+

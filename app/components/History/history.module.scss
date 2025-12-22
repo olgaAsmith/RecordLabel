@@ -17,16 +17,11 @@
   }
   &__tab {
     padding: 25px;
-    cursor: pointer;
 
     font-family: Audiowide, sans-serif;
     text-transform: uppercase;
 
     transition: all 0.3s ease;
-
-    &:hover {
-      background: #111010;
-    }
 
     @include md {
       padding: 16px 12px;

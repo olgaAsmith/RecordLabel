@@ -1,21 +1,21 @@
 'use client';
 import styles from './partners.module.scss';
 import Image from 'next/image';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useEffect, useRef } from 'react';
-
-gsap.registerPlugin(ScrollTrigger);
+import { useRef } from 'react';
+import { useGsapTimeline } from '@/app/hooks/useGsapTimeline';
+import { logos } from '@/app/utils/data';
 
 export default function Partners() {
   const partnersRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
 
-  useEffect(() => {
-    const items = gsap.utils.toArray<HTMLElement>(`.${styles.partners__item}`);
+  useGsapTimeline(partnersRef, (gsapInstance) => {
+    const items = gsapInstance.utils.toArray<HTMLElement>(
+      `.${styles.partners__item}`
+    );
 
     if (titleRef.current) {
-      gsap.fromTo(
+      gsapInstance.fromTo(
         titleRef.current,
         { y: -170, scale: 1.4 },
         {
@@ -33,7 +33,7 @@ export default function Partners() {
       );
     }
 
-    gsap.fromTo(
+    gsapInstance.fromTo(
       items,
       {
         scale: 0,
@@ -56,34 +56,7 @@ export default function Partners() {
         },
       }
     );
-  }, []);
-
-  const logos = [
-    {
-      id: 1,
-      pic: '/images/logo/logo1.svg',
-    },
-    {
-      id: 2,
-      pic: '/images/logo/logo2.svg',
-    },
-    {
-      id: 3,
-      pic: '/images/logo/logo2.svg',
-    },
-    {
-      id: 4,
-      pic: '/images/logo/logo1.svg',
-    },
-    {
-      id: 5,
-      pic: '/images/logo/logo2.svg',
-    },
-    {
-      id: 6,
-      pic: '/images/logo/logo1.svg',
-    },
-  ];
+  });
 
   return (
     <section ref={partnersRef} className={`container`}>

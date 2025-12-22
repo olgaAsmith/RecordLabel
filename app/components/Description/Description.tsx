@@ -3,17 +3,17 @@ import Button from '../Base/Button/Button';
 import MainText from '../Base/MainText/MainText';
 import Image from 'next/image';
 import styles from './description.module.scss';
-import { gsap } from '@/app/lib/gsap';
-import { useLayoutEffect, useRef } from 'react';
+import { useRef } from 'react';
+import { useGsapTimeline } from '@/app/hooks/useGsapTimeline';
 
 export default function Description() {
-  const descriptionRef = useRef<HTMLDivElement>(null);
+  const descriptionRef = useRef<HTMLElement>(null);
   const textOverlay = useRef<HTMLDivElement>(null);
   const titlesRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
 
-  useLayoutEffect(() => {
-    const tl = gsap.timeline({
+  useGsapTimeline(descriptionRef, (gsapInstance) => {
+    const tl = gsapInstance.timeline({
       scrollTrigger: {
         trigger: descriptionRef.current,
         start: 'top 10%',
@@ -33,11 +33,7 @@ export default function Description() {
       duration: 5,
     });
     tl.fromTo(imageRef.current, { scale: 0 }, { scale: 1, duration: 5 }, '<');
-
-    return () => {
-      tl.revert();
-    };
-  }, []);
+  });
 
   return (
     <section

@@ -6,45 +6,9 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import MainText from '../Base/MainText/MainText';
+import { content } from '@/app/utils/data';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const content = [
-  {
-    title: 'Our founders',
-    subtitle:
-      'Record Label was founded by Shaky Lake and Baky Hike in 2020 business accelerator.',
-    textTop:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    textMiddle:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    textBottom:
-      'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    imageUrl: '/images/story.webp',
-  },
-  {
-    title: 'Partners',
-    subtitle: 'Record Label partners',
-    textTop:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    textMiddle:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    textBottom:
-      'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    imageUrl: '/images/story.webp',
-  },
-  {
-    title: 'The future',
-    subtitle: 'Record Label future',
-    textTop:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    textMiddle:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    textBottom:
-      'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    imageUrl: '/images/story.webp',
-  },
-];
 
 export default function History() {
   const storyRef = useRef<HTMLDivElement>(null);
@@ -62,7 +26,6 @@ export default function History() {
         start: 'top 10%',
         end: 'top top',
         scrub: 1,
-        
       },
     });
 
@@ -93,7 +56,7 @@ export default function History() {
       end: '+=350vh',
       pin: true,
       scrub: 4,
-        pinSpacing: true,
+      pinSpacing: true,
 
       snap: 1 / (tabCount - 1),
 
@@ -118,23 +81,11 @@ export default function History() {
     };
   }, []);
 
-  const handleTabClick = (idx: number) => {
-    if (!tabTriggerRef.current) return;
-
-    const progress = idx / (content.length - 1);
-
-    gsap.to(tabTriggerRef.current, {
-      progress,
-      duration: 0.8,
-      ease: 'power2.out',
-    });
-  };
-
   return (
     <section
       ref={storyRef}
       className={`container ${styles.history}`}
-      id="story"
+      id='story'
     >
       <h2 ref={titleRef}>The Story</h2>
 
@@ -147,7 +98,6 @@ export default function History() {
                 className={`${styles.history__tab} ${
                   idx === activeTab ? styles.history__active : ''
                 }`}
-                onClick={() => handleTabClick(idx)}
               >
                 {item.title}
               </li>
@@ -165,7 +115,7 @@ export default function History() {
               width={170}
               height={250}
               src={content[activeTab].imageUrl}
-              alt="Story"
+              alt='Story'
               className={styles.history__image}
             />
           </div>

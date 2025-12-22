@@ -3,21 +3,20 @@
 import Circle from './Circle/Circle';
 import styles from './roadmap.module.scss';
 import Image from 'next/image';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
+import { useGsapTimeline } from '@/app/hooks/useGsapTimeline';
 
-gsap.registerPlugin(ScrollTrigger);
 export default function Roadmap() {
   const roadmapRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
 
-  useEffect(() => {
-
-    const items = gsap.utils.toArray<HTMLElement>(`.${styles.roadmap__item}`);
+  useGsapTimeline(roadmapRef, (gsapInstance) => {
+    const items = gsapInstance.utils.toArray<HTMLElement>(
+      `.${styles.roadmap__item}`
+    );
 
     if (titleRef.current) {
-      gsap.fromTo(
+      gsapInstance.fromTo(
         titleRef.current,
         { y: 200, scale: 1.5 },
         {
@@ -36,7 +35,7 @@ export default function Roadmap() {
     }
 
     items.forEach((item) => {
-      gsap.fromTo(
+      gsapInstance.fromTo(
         item,
         { y: 150, rotateX: -90, opacity: 0 },
         {
@@ -55,7 +54,7 @@ export default function Roadmap() {
         }
       );
     });
-  }, []);
+  });
 
   const content = [
     {

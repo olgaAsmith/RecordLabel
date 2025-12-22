@@ -1,20 +1,21 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+import { useRef } from 'react';
 import Button from '../Base/Button/Button';
 import Equa from './Equa/Equa';
 import styles from './hero.module.scss';
+import { useGsapTimeline } from '@/app/hooks/useGsapTimeline';
 
 export default function Hero() {
+  const heroRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const equaRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const tl = gsap.timeline();
+  useGsapTimeline(heroRef, (gsapInstance) => {
+    const tl = gsapInstance.timeline();
     tl.to(bgRef.current, {
       scale: 1.5,
       duration: 60,
@@ -92,10 +93,10 @@ export default function Hero() {
         },
         '+=0.5'
       );
-  }, []);
+  });
 
   return (
-    <section className={`container ${styles.hero}`}>
+    <section ref={heroRef} className={`container ${styles.hero}`}>
       <div ref={bgRef} className={styles.hero__background}></div>
       <div className={styles.hero__main}>
         <h1 className={styles.hero__title} ref={titleRef}>

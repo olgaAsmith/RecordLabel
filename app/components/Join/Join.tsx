@@ -2,11 +2,8 @@
 import Button from '../Base/Button/Button';
 import styles from './join.module.scss';
 import Image from 'next/image';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useEffect, useRef } from 'react';
-
-gsap.registerPlugin(ScrollTrigger);
+import { useRef } from 'react';
+import { useGsapTimeline } from '@/app/hooks/useGsapTimeline';
 
 export default function Join() {
   const joinRef = useRef<HTMLDivElement>(null);
@@ -15,10 +12,8 @@ export default function Join() {
   const imageRef = useRef<HTMLHeadingElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
 
-  useEffect(() => {
-    if (!joinRef.current) return;
-
-    const tl = gsap.timeline({
+  useGsapTimeline(joinRef, (gsapInstance) => {
+    const tl = gsapInstance.timeline({
       scrollTrigger: {
         trigger: joinRef.current,
         start: 'top 40%',
@@ -77,7 +72,7 @@ export default function Join() {
       );
 
     tl.call(() => {
-      const hitTl = gsap.timeline({ repeat: -1 });
+      const hitTl = gsapInstance.timeline({ repeat: -1 });
       hitTl
         .to(buttonRef.current, { scale: 1.1, duration: 0.15, ease: 'power1.inOut' })
         .to(buttonRef.current, { scale: 1, duration: 0.45, ease: 'power1.inOut' })
@@ -85,10 +80,6 @@ export default function Join() {
         .to(buttonRef.current, { scale: 1, duration: 0.45, ease: 'power1.inOut' })
         .to(buttonRef.current, { scale: 1, duration: 0.5 });
     });
-    return () => {
-      tl.scrollTrigger?.kill();
-      tl.kill();
-    };
   }, []);
 
   return (

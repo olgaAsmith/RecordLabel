@@ -1,21 +1,16 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useRef } from 'react';
 import styles from './photoline.module.scss';
-
-gsap.registerPlugin(ScrollTrigger);
+import { useGsapTimeline } from '@/app/hooks/useGsapTimeline';
 
 export default function History() {
   const lineRef = useRef<HTMLDivElement | null>(null);
   const lineTopRef = useRef<HTMLDivElement | null>(null);
   const lineBottomRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    if (!lineRef.current) return;
-
-    const tl = gsap.timeline({
+  useGsapTimeline(lineRef, (gsapInstance) => {
+    const tl = gsapInstance.timeline({
       scrollTrigger: {
         trigger: lineRef.current,
         start: 'top 20%',
@@ -35,12 +30,7 @@ export default function History() {
       },
       '<'
     );
-
-    return () => {
-      tl.scrollTrigger?.kill();
-      tl.kill();
-    };
-  }, []);
+  });
 
   return (
     <section ref={lineRef} className={styles.photoline}>
