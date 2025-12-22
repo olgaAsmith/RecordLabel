@@ -1,28 +1,44 @@
+'use client';
 import styles from './artists.module.scss';
 import Image from 'next/image';
+import { useLayoutEffect, useRef } from 'react';
+import { artists } from '@/app/utils/data';
+import { gsap } from '@/app/lib/gsap';
 
 export default function Artists() {
-  const artists = [
-    { name: 'Daniela Youth', pic: '/images/artists/daniela.webp' },
-    { name: 'Roman Gore', pic: '/images/artists/roman.webp' },
-    { name: 'Pete Bentz', pic: '/images/artists/pete.webp' },
-    { name: 'Mark Popson', pic: '/images/artists/mark.webp' },
-    { name: 'Tonya', pic: '/images/artists/tonya.webp' },
-    { name: 'Ivor', pic: '/images/artists/ivor.webp' },
-    { name: 'Somae Petit', pic: '/images/artists/somae.webp' },
-  ];
+  const artistsRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLUListElement>(null);
+
+  useLayoutEffect(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: artistsRef.current,
+        start: 'top top',
+        end: '+=250vh',
+        scrub: 6,
+        pin: true,
+      },
+    });
+    tl.to(titleRef.current, { x: '-50%' });
+    tl.to(listRef.current, { x: '-55%' }, '<');
+
+    return () => {
+      tl.revert();
+    };
+  }, []);
 
   return (
-    <section className={styles.artists}>
-      <h2 className={styles.artists__title}>
-        {Array(5)
+    <section ref={artistsRef} className={styles.artists}>
+      <h2 ref={titleRef} className={styles.artists__title}>
+        {Array(6)
           .fill('Artists')
           .map((text, index) => (
             <span key={index}>{text}</span>
           ))}
       </h2>
 
-      <ul className={styles.artists__info}>
+      <ul ref={listRef} className={styles.artists__list}>
         {artists.map((artist, index) => (
           <li key={index} className={styles.artists__item}>
             <Image

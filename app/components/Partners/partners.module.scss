@@ -1,10 +1,13 @@
 @import '../../styles/media';
 
 .partners {
+  min-height: auto;
   &__list {
     display: flex;
+    flex-wrap: wrap;
     gap: 100px;
-
+    justify-content: center;
+    
     @include md {
       flex-direction: column;
       gap: 20px;
@@ -20,6 +23,6 @@
     height: 100%;
 
     object-fit: contain;
-    filter: grayscale(70%); 
+    filter: grayscale(70%);
   }
 }

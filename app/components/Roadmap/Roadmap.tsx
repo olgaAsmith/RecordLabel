@@ -1,8 +1,62 @@
+'use client';
+
 import Circle from './Circle/Circle';
 import styles from './roadmap.module.scss';
 import Image from 'next/image';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef } from 'react';
 
+gsap.registerPlugin(ScrollTrigger);
 export default function Roadmap() {
+  const roadmapRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+
+    const items = gsap.utils.toArray<HTMLElement>(`.${styles.roadmap__item}`);
+
+    if (titleRef.current) {
+      gsap.fromTo(
+        titleRef.current,
+        { y: 200, scale: 1.5 },
+        {
+          y: 0,
+          scale: 1,
+          duration: 2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: titleRef.current,
+            start: 'top 70%',
+            end: '+=200',
+            scrub: 4,
+          },
+        }
+      );
+    }
+
+    items.forEach((item) => {
+      gsap.fromTo(
+        item,
+        { y: 150, rotateX: -90, opacity: 0 },
+        {
+          y: 0,
+          rotateX: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power3.out',
+          transformPerspective: 1000,
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 80%',
+            end: 'bottom 50%',
+            scrub: 4,
+          },
+        }
+      );
+    });
+  }, []);
+
   const content = [
     {
       number: 1,
@@ -42,7 +96,7 @@ export default function Roadmap() {
     },
   ];
   return (
-    <section className={`container ${styles.roadmap}`}>
+    <section ref={roadmapRef} className={`container ${styles.roadmap}`}>
       <div className={styles.roadmap__pulse1}>
         <Circle />
       </div>
@@ -52,7 +106,7 @@ export default function Roadmap() {
       <div className={styles.roadmap__pulse3}>
         <Circle />
       </div>
-      <h2>Roadmap</h2>
+      <h2 ref={titleRef}>Roadmap</h2>
       <ul className={styles.roadmap__cards}>
         {content.map((item) => (
           <li key={item.number} className={styles.roadmap__item}>

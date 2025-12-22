@@ -1,6 +1,28 @@
 .photoline {
+  min-height: 120dvh;
+  overflow: hidden;
+  background-image: url(../../../public/images/line.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 
-  &__image {
-    width: 100%;
+  position: relative;
+
+  &__bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    height: 70%;
+    background-color: black;
+  }
+
+  &__top {
+    top: -70%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    height: 70%;
+    background-color: black;
   }
 }

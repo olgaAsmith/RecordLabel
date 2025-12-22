@@ -8,42 +8,22 @@
   &__cards {
     display: flex;
     flex-direction: column;
-    gap: 143px;
-
+    gap: 80px;
     @include md {
-      gap: 80px;
+      gap: 60px;
     }
   }
 
   &__item {
+    transform-origin: top center;
+    opacity: 0;
+    backface-visibility: hidden;
+
     border: 1px solid (var(--green));
     background-color: #222222;
 
     max-width: 540px;
     position: relative;
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -85px;
-      left: 50%;
-      transform: translateX(-50%);
-
-      display: block;
-      height: 40px;
-      width: 1px;
-      background-color: var(--green);
-
-      @include md {
-        height: 20px;
-        bottom: -50px;
-
-      }
-    }
-
-    &:last-child::after {
-      content: none;
-    }
   }
 
   &__item-top {

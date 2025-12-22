@@ -8,6 +8,7 @@
     will-change: transform;
 
     margin-top: 100px;
+    margin-bottom: 50px;
 
     @include md {
       margin-top: 0;
@@ -42,6 +43,9 @@
     gap: 20px;
 
     padding-bottom: 20px;
+
+    transform: translateX(150px) translateZ(-230px) rotateY(-90deg);
+    transform-origin: center right;
   }
   &__name {
     font-size: 32px;

@@ -1,6 +1,12 @@
+'use client';
 import Socials from '../Base/Socials/Socials';
 import styles from './team.module.scss';
 import Image from 'next/image';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef } from 'react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Team() {
   const team = [
@@ -62,11 +68,59 @@ export default function Team() {
       ],
     },
   ];
+  const teamRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
 
+  useEffect(() => {
+    const items = gsap.utils.toArray<HTMLElement>(`.${styles.team__item}`);
+
+    if (titleRef.current) {
+      gsap.fromTo(
+        titleRef.current,
+        { y: 150, scale: 1.4 },
+        {
+          y: 0,
+          scale: 1,
+          x: '-30%',
+          scrollTrigger: {
+            trigger: teamRef.current,
+            start: 'top 40%',
+            end: '+=700',
+            scrub: 4,
+          },
+        }
+      );
+    }
+
+    gsap.fromTo(
+      items,
+      {
+        x: 150,
+        rotateY: -90,
+        scale: 0.5,
+        opacity: 0,
+      },
+      {
+        x: 0,
+        scale: 1,
+        rotateY: 0,
+        opacity: 1,
+        duration: 1.5,
+        ease: 'power3.out',
+        transformPerspective: 1000,
+        stagger: 0.45,
+        scrollTrigger: {
+          trigger: items,
+          start: 'top 60%',
+          toggleActions: 'play none none reverse',
+        },
+      }
+    );
+  }, []);
   return (
-    <section className={styles.team}>
-      <h2 className={styles.team__title}>
-        {Array(5)
+    <section ref={teamRef} className={styles.team}>
+      <h2 ref={titleRef} className={styles.team__title}>
+        {Array(7)
           .fill('Team')
           .map((text, index) => (
             <span key={index}>{text}</span>

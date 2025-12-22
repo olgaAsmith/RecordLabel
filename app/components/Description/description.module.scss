@@ -40,6 +40,16 @@
   &__right {
     display: flex;
     flex-direction: column;
+    position: relative;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: -1%;
+    background-color: black;
+    z-index: 100;
+    transform-origin: bottom;
+    transform: scaleY(1);
   }
 
   &__textblock {
