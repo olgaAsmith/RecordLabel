@@ -59,7 +59,7 @@ export default function Partners() {
   });
 
   return (
-    <section ref={partnersRef} className={`container`}>
+    <section ref={partnersRef} className={`container ${styles.partners}`}>
       <h2 ref={titleRef}>Our partners</h2>
       <ul className={styles.partners__list}>
         {logos.map((logo) => (

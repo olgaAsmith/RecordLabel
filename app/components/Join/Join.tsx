@@ -80,7 +80,7 @@ export default function Join() {
         .to(buttonRef.current, { scale: 1, duration: 0.45, ease: 'power1.inOut' })
         .to(buttonRef.current, { scale: 1, duration: 0.5 });
     });
-  }, []);
+  });
 
   return (
     <section ref={joinRef} className={`container ${styles.join}`} id='contact'>

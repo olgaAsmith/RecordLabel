@@ -1,3 +1,5 @@
+@import '../../styles/media';
+
 .photoline {
   min-height: 120dvh;
   overflow: hidden;
@@ -7,6 +9,9 @@
   background-position: center;
 
   position: relative;
+  @include lg {
+    min-height: 10dvh;
+  }
 
   &__bottom {
     bottom: 0;
@@ -15,6 +20,9 @@
     position: absolute;
     height: 70%;
     background-color: black;
+    @include lg {
+      display: none;
+    }
   }
 
   &__top {
@@ -24,5 +32,8 @@
     position: absolute;
     height: 70%;
     background-color: black;
+    @include lg {
+      display: none;
+    }
   }
 }

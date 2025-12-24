@@ -33,7 +33,7 @@ export default function Artists() {
             <span key={index}>{text}</span>
           ))}
       </h2>
-
+      <h2 className={styles.artists__titleMobile}>Artists</h2>
       <ul ref={listRef} className={styles.artists__list}>
         {artists.map((artist, index) => (
           <li key={index} className={styles.artists__item}>

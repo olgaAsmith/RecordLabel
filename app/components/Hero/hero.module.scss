@@ -5,13 +5,13 @@
   grid-template-columns: 1fr 2fr;
   height: 100dvh;
 
-  margin-bottom: -200px;
+
 
   @include md {
     grid-template-columns: 1fr;
-    height: auto;
     margin-bottom: 0;
     margin-top: 100px;
+    min-height: unset;
   }
 
   &__background {
@@ -31,11 +31,24 @@
     background-size: cover;
     background-position: center;
   }
+
+  &__main {
+    height: 50%;
+  }
   & p {
     margin-top: 44px;
     max-width: 80%;
+    @include lg {
+      transform: translateX(0);
+    }
     @include md {
       margin-top: 24px;
+    }
+  }
+
+  & h1 {
+    @include lg {
+      transform: translateX(0);
     }
   }
 
@@ -51,6 +64,9 @@
 
     svg {
       width: 100%;
+    }
+    @include lg {
+      transform: translateX(0);
     }
     @include md {
       display: none;

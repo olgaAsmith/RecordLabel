@@ -18,66 +18,90 @@ export default function History() {
 
   const [activeTab, setActiveTab] = useState(0);
   const [fade, setFade] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const handleTabClick = (index: number) => {
+    if (!isMobile || index === activeTab) return;
+
+    setFade(false);
+
+    gsap.delayedCall(0.25, () => {
+      setActiveTab(index);
+      setFade(true);
+    });
+  };
 
   useEffect(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
+    if (!storyRef.current) return;
+
+    const mm = gsap.matchMedia();
+    let tabTrigger: ScrollTrigger | null = null;
+
+    // ===== DESKTOP ONLY =====
+    mm.add('(min-width: 1025px)', () => {
+      setIsMobile(false);
+      const introTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: storyRef.current,
+          start: 'top 10%',
+          end: 'top top',
+          scrub: 1,
+        },
+      });
+
+      introTl
+        .fromTo(titleRef.current, { y: 200, scale: 1.5 }, { y: 0, scale: 1 })
+        .fromTo(
+          storytellRef.current,
+          { opacity: 0, y: 350 },
+          { opacity: 1, y: 0 },
+          '<'
+        );
+
+      const tabCount = content.length;
+      let currentIndex = 0;
+
+      tabTrigger = ScrollTrigger.create({
         trigger: storyRef.current,
-        start: 'top 10%',
-        end: 'top top',
-        scrub: 1,
-      },
+        start: 'top top',
+        end: '+=350vh',
+        pin: true,
+        scrub: 4,
+        pinSpacing: true,
+        snap: 1 / (tabCount - 1),
+
+        onUpdate: (self) => {
+          const idx = Math.round(self.progress * (tabCount - 1));
+
+          if (idx !== currentIndex) {
+            currentIndex = idx;
+            setFade(false);
+
+            gsap.delayedCall(0.3, () => {
+              setActiveTab(idx);
+              setFade(true);
+            });
+          }
+        },
+      });
+
+      return () => {
+        introTl.scrollTrigger?.kill();
+        introTl.kill();
+        tabTrigger?.kill();
+      };
     });
 
-    tl.fromTo(
-      titleRef.current,
-      { y: 200, scale: 1.5 },
-      { y: 0, scale: 1 }
-    ).fromTo(
-      storytellRef.current,
-      { opacity: 0, y: 350 },
-      { opacity: 1, y: 0 },
-      '<'
-    );
+    mm.add('(max-width: 1024px)', () => {
+      setIsMobile(true);
+      setActiveTab(0);
+      setFade(true);
 
-    return () => {
-      tl.scrollTrigger?.kill();
-      tl.kill();
-    };
-  }, []);
-
-  useEffect(() => {
-    const tabCount = content.length;
-    let currentIndex = 0;
-
-    tabTriggerRef.current = ScrollTrigger.create({
-      trigger: storyRef.current,
-      start: 'top top',
-      end: '+=350vh',
-      pin: true,
-      scrub: 4,
-      pinSpacing: true,
-
-      snap: 1 / (tabCount - 1),
-
-      onUpdate: (self) => {
-        const idx = Math.round(self.progress * (tabCount - 1));
-
-        if (idx !== currentIndex) {
-          currentIndex = idx;
-          setFade(false);
-
-          gsap.delayedCall(0.3, () => {
-            setActiveTab(idx);
-            setFade(true);
-          });
-        }
-      },
+      gsap.set([titleRef.current, storytellRef.current], { clearProps: 'all' });
     });
 
     return () => {
-      tabTriggerRef.current?.kill();
-      tabTriggerRef.current = null;
+      mm.revert();
     };
   }, []);
 
@@ -98,6 +122,9 @@ export default function History() {
                 className={`${styles.history__tab} ${
                   idx === activeTab ? styles.history__active : ''
                 }`}
+                onClick={() => handleTabClick(idx)}
+                role={isMobile ? 'button' : undefined}
+                tabIndex={isMobile ? 0 : -1}
               >
                 {item.title}
               </li>

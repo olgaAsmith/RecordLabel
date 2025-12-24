@@ -23,7 +23,7 @@ export default function Footer() {
         },
       }
     );
-  }, []);
+  });
 
   return (
     <footer ref={footerRef} className={`${styles.footer}`}>

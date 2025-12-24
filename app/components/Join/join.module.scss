@@ -3,6 +3,9 @@
 .join {
   min-height: auto;
   padding-bottom: 200px;
+  @include lg {
+    padding-bottom: 100px;
+  }
   &__container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -16,7 +19,7 @@
       gap: 20px;
     }
     @include md {
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: 1fr;
     }
   }
 
@@ -27,6 +30,7 @@
 
     @include md {
       gap: 30px;
+      align-items: center;
     }
 
     h2 {
@@ -35,6 +39,7 @@
     p {
       @include md {
         max-width: 300px;
+        text-align: center;
       }
     }
   }
@@ -44,5 +49,8 @@
   }
   &__image {
     width: 100%;
+    @include md {
+      display: none;
+    }
   }
 }

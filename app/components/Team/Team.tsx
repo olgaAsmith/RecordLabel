@@ -67,7 +67,7 @@ export default function Team() {
             <span key={index}>{text}</span>
           ))}
       </h2>
-
+      <h2 className={styles.team__titleMobile}>Team</h2>
       <ul className={styles.team__list}>
         {team.map((artist, index) => (
           <li key={index} className={styles.team__item}>

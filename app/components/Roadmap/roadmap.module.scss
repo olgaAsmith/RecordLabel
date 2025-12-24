@@ -24,6 +24,10 @@
 
     max-width: 540px;
     position: relative;
+    @include lg {
+      transform: translateY(0) rotateX(0);
+      opacity: 1;
+    }
   }
 
   &__item-top {
@@ -53,6 +57,9 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--green);
+    @include lg {
+      transform: translateY(0);
+    }
   }
 
   &__subtitle {
