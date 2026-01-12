@@ -5,8 +5,6 @@
   grid-template-columns: 1fr 2fr;
   height: 100dvh;
 
-
-
   @include md {
     grid-template-columns: 1fr;
     margin-bottom: 0;
@@ -53,7 +51,13 @@
   }
 
   & button {
+    opacity: 0;
+    transform: translateX(-200px);
     margin-top: 170px;
+    @include lg {
+      opacity: 1;
+      transform: translateX(0);
+    }
     @include md {
       margin-top: 80px;
     }
