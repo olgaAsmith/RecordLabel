@@ -28,43 +28,49 @@ export default function Hero() {
         titleRef.current,
         {
           x: -200,
+          opacity: 0,
           scale: 0,
           duration: 0.8,
         },
         {
           x: 0,
+          opacity: 1,
           scale: 1,
           duration: 0.8,
         },
-        '<'
+        '<',
       )
       .fromTo(
         textRef.current,
         {
           x: -200,
+          opacity: 0,
           scale: 0,
           duration: 0.8,
         },
         {
           x: 0,
+          opacity: 1,
           scale: 1,
           duration: 0.8,
         },
-        '<'
+        '<',
       )
       .fromTo(
         equaRef.current,
         {
           x: 200,
+          opacity: 0,
           scale: 0,
           duration: 0.8,
         },
         {
           x: 0,
+          opacity: 1,
           scale: 1,
           duration: 0.8,
         },
-        '+=0.2'
+        '+=0.2',
       )
       .fromTo(
         buttonRef.current,
@@ -78,7 +84,7 @@ export default function Hero() {
           opacity: 1,
           duration: 0.1,
         },
-        '+=0.2'
+        '+=0.2',
       )
       .to(
         buttonRef.current,
@@ -91,7 +97,7 @@ export default function Hero() {
           repeatDelay: 0.3,
           y: 10,
         },
-        '+=0.5'
+        '+=0.5',
       );
   });
 
